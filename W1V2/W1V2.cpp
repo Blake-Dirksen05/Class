@@ -3,7 +3,14 @@ using namespace std;
 
 int main() {
 
-	cout << "Hello World";
-	return 0;
+	int num; //this is the number we input
+
+	cout << "Enter in your number: ";
+	cin >> num;
+	cout << endl << "Your number is: " << num; //this line is here for testing rn
+	
+
+
+
 
 }
