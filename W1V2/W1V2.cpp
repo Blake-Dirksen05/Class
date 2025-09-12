@@ -1,11 +1,25 @@
 #include <iostream>
 #include <chrono>
-#include<vector>
-#include<numeric>
 using namespace std;
 using namespace std::chrono;
 
-string createRomanNumeral(int num, int numerals[], string letters[]);
+string createRomanNumeral(int num, int numerals[], string letters[]) {
+	string romanNumeral;
+
+	//using a for loop and using i to go through each array at the same time. 
+	for (int i = 12; i >= 0; i--) {
+		int remainder = num / numerals[i];	//dividing by the numerals so that we can see how many numerals we need
+
+		if (remainder > 0) { //if we have a remainder we go through this loop
+			for (int j = 0; j < remainder; j++) { //however many remainder we have we go through this 2nd for loop
+				romanNumeral += letters[i];
+				//adding the string onto the string every loop
+			}
+			num %= numerals[i]; //reducing num so that we don't repeat ourselves
+		}
+	}
+	return romanNumeral;
+}
 
 int main() {
 	int num; //this is the number we input
@@ -26,24 +40,4 @@ int main() {
 	
 	cout << endl << romanNumeral << endl;
 	cout << "Time duration: " << duration.count() << " nanoseconds" << endl;
-}
-
-
-string createRomanNumeral(int num, int numerals[], string letters[]) {
-	string romanNumeral;
-
-	//using a for loop and using i to go through each array at the same time. 
-	for (int i = 12; i >= 0; i--) {
-		int remainder = num / numerals[i];	//dividing by the numerals so that we can see how many numerals we need
-		
-		if (remainder > 0) { //if we have a remainder we go through this loop
-			for (int j = 0; j < remainder; j++) { //however many remainder we have we go through this 2nd for loop
-				romanNumeral += letters[i];
-				//adding the string onto the string every loop
-			}
-		num %= numerals[i]; //reducing num so that we don't repeat ourselves
-		}
-	}
-
-	return romanNumeral;
 }
