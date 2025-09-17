@@ -33,19 +33,12 @@ string Roman(int num) {
 }
 
 int main() {
-
-	int example1 = 3749;
-	int example2 = 58;
-	int example3 = 1994;
-
-	cout << "Here is the Roman Numerals into Integers - Example 1: " <<
-		Roman(example1) << endl;
-
-	cout << "Here is the Roman Numerals into Integers - Example 2: " <<
-		Roman(example2) << endl;
-
-	cout << "Here is the Roman Numerals into Integers - Example 3: " <<
-		Roman(example3) << endl;
+	int Rooman;
+	
+	cout << "Enter an number: ";
+	cin >> Rooman;
+	cout << "Here is the Roman Numerals into Integers: " <<
+		Roman(Rooman) << endl;
 
 	return 0;
 
